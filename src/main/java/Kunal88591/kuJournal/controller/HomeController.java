@@ -1,18 +1,19 @@
 package Kunal88591.kuJournal.controller;
 
+import Kunal88591.kuJournal.Entity.JournalEntry;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 @RestController
 public class HomeController {
 
-    @GetMapping("/")
-    public Map<String, String> home() {
-        return Collections.singletonMap("message", "Welcome to kuJournal Home!");
+    private Map < Long, JournalEntry> journalEntries = new HashMap<>();
+
+    @GetMapping
+    public List<JournalEntry> getAll(){
+        return new ArrayList<>(journalEntries.values());
     }
 
     @GetMapping("/health")
@@ -22,7 +23,7 @@ public class HomeController {
 
     @GetMapping("/about")
     public Map<String, String> about() {
-        return Collections.singletonMap("info", "kuJournal is a Spring Boot demo project by Kunal ");
+        return Collections.singletonMap("info", "kuJournal is a Spring Boot project by Kunal ");
     }
 
     @GetMapping("/contact")
