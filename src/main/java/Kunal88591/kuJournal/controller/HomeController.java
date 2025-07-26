@@ -18,7 +18,7 @@ public class HomeController {
 
     @GetMapping("/health")
     public Map<String, String> health() {
-        return Collections.singletonMap("status", "UP");
+        return Collections.singletonMap("status", "UP ✔️");
     }
 
     @GetMapping("/about")
